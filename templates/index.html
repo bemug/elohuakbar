@@ -1,0 +1,19 @@
+{% include 'components/header.html' %}
+<h1>Current leaderboard</h1>
+<table class="u-full-width">
+	<tr>
+		<th>Player</th>
+		<th>Elo</th>
+	</tr>
+	{% for key in result %}
+	<tr>
+		<td> {{ key[0] }} </td>
+		<td> {{ key[1] }} </td>
+	</tr>
+	{% endfor %}
+</table>
+<p>
+	<a class="button" href="/addplayer">New player</a>
+	<a class="button button-primary" href="/match">Find Match</a>
+</p>
+{% include 'components/footer.html' %}

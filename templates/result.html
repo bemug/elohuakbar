@@ -1,0 +1,48 @@
+{% include 'components/header.html' %}
+<h1>Match found</h1>
+
+<strong>Team 1:</strong>
+<table>
+	<tr>
+	{% for player in result[0] %}
+		<td> {{ player }} </td>
+	{% endfor %}
+	</tr>
+</table>
+<form action = "/update" method = "post">
+	<input type="hidden" name="winner" value="{{ ','.join(result[0]) }}">
+	<input type="hidden" name="looser" value="{{ ','.join(result[1]) }}">
+	<p><input class="button-primary" type = "submit" value = "Victory" /></p>
+</form>
+
+<h4>VS.</h4>
+
+<strong>Team 2:</strong>
+<table>
+	<tr>
+	{% for player in result[1] %}
+		<td> {{ player }} </td>
+	{% endfor %}
+	</tr>
+</table>
+<form action = "/update" method = "post">
+	<input type="hidden" name="winner" value="{{ ','.join(result[1]) }}">
+	<input type="hidden" name="looser" value="{{ ','.join(result[0]) }}">
+	<p><input class="button-primary" type = "submit" value = "Victory" /></p>
+</form>
+
+<p>
+<label>Copy paste teams to your friends:</label>
+<code>
+	Team 1 [
+	{% for player in result[0] %}
+		{{ player }}
+	{% endfor %}
+	]  VS.  Team 2 [
+	{% for player in result[1] %}
+		{{ player }}
+	{% endfor %}
+	]
+</code>
+</p>
+{% include 'components/footer.html' %}

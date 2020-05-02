@@ -1,0 +1,12 @@
+{% include 'components/header.html' %}
+<h1>Who's playing?</h1>
+<form action = "/result" method = "post">
+	{% for key in result %}
+	<label>
+		<input type="checkbox" name="{{ key }}" class="players" value="{{ key }}">
+		<span class="label-body">{{ key }}</span>
+	</label>
+	{% endfor %}
+	<input class="button-primary" type="submit" value="Generate match" />
+</form>
+{% include 'components/footer.html' %}

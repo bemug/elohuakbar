@@ -1,0 +1,8 @@
+source venv/bin/activate
+#Test
+export FLASK_APP=main
+aythbind flask run --host 0.0.0.0 --port 80
+#Prod
+authbind gunicorn -b 0.0.0.0:80 'main:app
+#crontab to backup db at 4am every day
+0 4 * * * cp /home/bemug/elohuakbar/players.csv /home/bemug/backups/players.csv_$(date +\%y-\%m-\%d)

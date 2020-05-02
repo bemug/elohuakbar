@@ -1,0 +1,16 @@
+{% include 'components/header.html' %}
+<h1>Add a new player</h1>
+<form action = "/submitplayer" method = "post">
+	<div class="row">
+		<div class="six columns">
+			<label>Name</label>
+			<input type = "text" name = "name" />
+		</div>
+		<div class="six columns">
+			<label>Starting elo</label>
+			<input type = "text" name = "elo" value="1500" /><br/>
+		</div>
+		<input class="button-primary" type="submit" value="Add player" />
+	</div>
+</form>
+{% include 'components/footer.html' %}
